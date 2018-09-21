@@ -3,12 +3,13 @@ const url = require('url');
 const newModule = require('./module.js');
 
 const app = http.createServer((request,response) => {
-    var querystring
+    var querystring,zip;
     querystring = url.parse(request.url,true).query;
-    if (querystring.value) {
+    zip = querystring.value
+    if (zip) {
         response.writeHead(200, {"Content-Type": "text/html"});
         console.log('the index.js has loaded')
-        response.write(`<h1>The parsed value from the url is ${querystring.value}</h1>`);
+        response.write(`<h1>${querystring.value} is the zip code for ${newModule.findcityname(zip)} <br> </h1>`);
         response.end();
     }
     

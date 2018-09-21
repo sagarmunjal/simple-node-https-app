@@ -1,7 +1,9 @@
 const cities = require('cities');
 
+exports.findcityname = (zip) => {
+    return cities.zip_lookup(zip).city;
+}
+
 exports.addlog = () => {
     console.log(` module.js has loaded`)
-    var myCity = cities.zip_lookup(10016);
-    console.log(myCity);
 }
